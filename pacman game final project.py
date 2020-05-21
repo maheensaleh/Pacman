@@ -1,3 +1,4 @@
+
 import pygame
 import time
 pygame.init()
@@ -49,7 +50,7 @@ def lives_func():
     global lives
     lives-=1
     if lives!=0:
-        gameloop() 
+        gameloop()
         gameover==False
     elif lives==0:
         lives=3
@@ -63,13 +64,13 @@ def bonus(x):
     text=font.render('GREAT!+5',True,l_violet)
     all_fonts=pygame.font.get_fonts()
     gamewindow.blit(text,(100,220))
-    pygame.mixer.music.load('fruit_music.wav')
-    pygame.mixer.music.play(2, 0)
+    # pygame.mixer.music.load('fruit_music.wav')
+    # pygame.mixer.music.play(2, 0)
     #pygame.mixer.music.fadeout(3000)
     pygame.display.update()
     time.sleep(2.5)
-    pygame.mixer.music.load('Pacman_music.wav')
-    pygame.mixer.music.play(-1, 0)
+    # pygame.mixer.music.load('Pacman_music.wav')
+    # pygame.mixer.music.play(-1, 0)
 
 def main_menu():
     menu = True
@@ -117,9 +118,9 @@ def gameloop():
     gv=20
     score=-1
     pacman=pygame.image.load('pr.png')
-    pygame.mixer.music.load('pacman_music.wav')
-    pygame.mixer.music.set_volume(0.7)
-    pygame.mixer.music.play(-1,0.0)
+    # pygame.mixer.music.load('pacman_music.wav')
+    # pygame.mixer.music.set_volume(0.7)
+    # pygame.mixer.music.play(-1,0.0)
     n=0
     ##ghosts:
     g1x=0
@@ -190,7 +191,7 @@ def gameloop():
         ##rectangle 2;
         pygame.draw.rect(gamewindow,blue,[100,100,18,400])
         pygame.draw.rect(gamewindow,blue,[100,100,600,18])
-        pygame.draw.rect(gamewindow,blue,[680,100,20,400])     
+        pygame.draw.rect(gamewindow,blue,[680,100,20,400])
         pygame.draw.rect(gamewindow,blue,[100,480,600,20])
         ##rectangle 3;
         pygame.draw.rect(gamewindow,blue,[160,160,18,280])
@@ -271,7 +272,7 @@ def gameloop():
             elif many<0:
                 many=window_height-20
             gamewindow.blit(pacman,(manx,many))
-                
+
         else:
             ##to give boundary of box
             colour=gamewindow.get_at_mapped((manx,many))
@@ -374,7 +375,7 @@ def gameloop():
         if orx not in food:
             orange=pygame.image.load('ora.png')
             gamewindow.blit(orange,(orx,ory))
-             
+
         ##saving the eaten goals:
         if (manx+10,many+10) not in eatengoal:
             eatengoal.append((manx+10,many+10))
@@ -402,33 +403,33 @@ def gameloop():
                 if manx <= 40 or manx >= 760 or many <= 40 or many >= 560:
                     gameover = True
                     print((manx, many), (g1x, g1y))
-                    pygame.mixer.music.load('pacman_death.wav')
-                    pygame.mixer.music.play(1, 0)
-                    pygame.mixer.music.fadeout(2000)
+                    # pygame.mixer.music.load('pacman_death.wav')
+                    # pygame.mixer.music.play(1, 0)
+                    # pygame.mixer.music.fadeout(2000)
                     time.sleep(2)
         elif manx >= g2x - 25 and manx <= g2x + 25:
             if many >= g2y - 25 and many <= g2y + 25:
                 if 60 <= manx <= 100 or 700 <= manx <= 740 or 60 <= many <= 100 or 500 <= many <= 540:
                     gameover = True
-                    pygame.mixer.music.load('pacman_death.wav')
-                    pygame.mixer.music.play(1, 0)
-                    pygame.mixer.music.fadeout(2000)
+                    # pygame.mixer.music.load('pacman_death.wav')
+                    # pygame.mixer.music.play(1, 0)
+                    # pygame.mixer.music.fadeout(2000)
                     time.sleep(2)
         elif manx >= g3x - 25 and manx <= g3x + 25:
             if many >= g3y - 25 and many <= g3y + 25:
                 if 120 <= manx <= 160 or 640 <= manx <= 680 or 120 <= many <= 160 or 440 <= many <= 480:
                     gameover = True
-                    pygame.mixer.music.load('pacman_death.wav')
-                    pygame.mixer.music.play(1, 0)
-                    pygame.mixer.music.fadeout(2000)
+                    # pygame.mixer.music.load('pacman_death.wav')
+                    # pygame.mixer.music.play(1, 0)
+                    # pygame.mixer.music.fadeout(2000)
                     time.sleep(2)
         elif manx >= g4x - 25 and manx <= g4x + 25:
             if many >= g4y - 25 and many <= g4y + 25:
                 if 180 <= manx <= 220 or 580 <= manx <= 620 or 180 <= many <= 220 or 380 <= many <= 420:
                     gameover = True
-                    pygame.mixer.music.load('pacman_death.wav')
-                    pygame.mixer.music.play(1, 0)
-                    pygame.mixer.music.fadeout(2000)
+                    # pygame.mixer.music.load('pacman_death.wav')
+                    # pygame.mixer.music.play(1, 0)
+                    # pygame.mixer.music.fadeout(2000)
                     time.sleep(2)
 
         # ghost  movements
@@ -460,7 +461,7 @@ def gameloop():
                     g2y += gv
 
         elif g2x == 700:
-            if g2y <= 500: 
+            if g2y <= 500:
                 g2y += gv
                 if g2y==500:
                     g2x += -gv
